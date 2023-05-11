@@ -1,8 +1,13 @@
-import java.util.Scanner;
+package poo.escenarionew2;
 
-import domain.Categoria;
-import domain.PrecioActual;
-import domain.Producto;
+
+
+import java.util.Scanner;
+import java.util.UUID;
+
+import poo.escenarionew2.dominio.Categoria;
+import poo.escenarionew2.dominio.PrecioActual;
+import poo.escenarionew2.dominio.Producto;
 
 public class App {
     public static void main(String[] args) {
@@ -12,16 +17,84 @@ public class App {
         for (int i = 0; i < categorias.length; i++) {
             Categoria categoria = categorias[i];
             if (categoria != null) {
-                System.out.println(categoria.getCodigo() + " - " + categoria.getNombre());
+                System.out.println(categoria.getDescripcion() + " - " + categoria.getNombre() + " - " + categoria.getIsdiponible());
             }
         }
+        Producto [] producto = cargarProducto(categorias);
 
-       Producto producto = Producto.cargarProducto(categorias);
+        }
+
+    private static Producto[] cargarProducto(Categoria[] categorias) {
+        Producto[] productos = new Producto[10];
+        int cantidadProductos = 0;
+    
+        // Cargar  productos
+        Scanner scanner = new Scanner(System.in);
         
-       
+        String opcion = "";
+        while (!opcion.equals("0")) {
+            UUID id= UUID.randomUUID();
+            System.out.println("INGRESE DATOS DEL PRODUCTO (o 0 para salir):");
+            System.out.print("Nombre: ");
+            String nombre = scanner.nextLine();
+            if (nombre.equals("0")) {
+                opcion = "0";
+            } else {
+                System.out.print("Descripción: ");
+                String descripcion = scanner.nextLine();
+                System.out.print("Precio: ");
+                Double precioActual= scanner.nextDouble();
+                scanner.nextLine(); // Limpiar el buffer de entrada
+                System.out.print("Categoría (nombre): ");
+                String nombreCategoria = scanner.nextLine();
+    
+                // Buscar la categoría por su nombre
+                Categoria categoria = null;
+                for (int i = 0; i < categorias.length; i++) {
+                    Categoria c = categorias[i];
+                    if (c != null && c.getNombre().equals(nombreCategoria)) {
+                        categoria = c;
+                        break;
+                    }
+                }
+                if (categoria == null) {
+                    System.out.println("La categoría no existe.");
+                    return null;
+                }
+    
+                if (categoria != null) {
+                    Producto producto = new Producto(id, nombre, descripcion, categoria, precioActual);
+                    productos[cantidadProductos] = producto;
+                    cantidadProductos++;
+                    System.out.println("Producto agregado con éxito.");
+                }
+
+    }
+
+
 
 }
+  // Imprimir la lista de productos
+  System.out.println("Lista de productos:");
+  for (int i = 0; i < cantidadProductos; i++) {
+      Producto producto = productos[i];
+      System.out.println(producto.getId()+" - " +producto.getNombre() + " - " + producto.getDescripcion() + " - " +
+          producto.getCategoria().getNombre() + " - $" + producto.getPrecioActual());
 }
+        return productos;
+    }
+
+   
+    }
+
+        
+    
+    
+    
+        
+    
+
+
 
 
         /*

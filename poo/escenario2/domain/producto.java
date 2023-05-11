@@ -1,4 +1,4 @@
-package poo.escenario2.domain;
+/*package poo.escenario2.domain;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -83,5 +83,5 @@ public class producto {
             return sb.toString();
         }
     }
-}
+}*/
 

@@ -1,4 +1,4 @@
-
+/*
 import java.util.Scanner;
 
 import domain.Categoria;
@@ -91,3 +91,4 @@ public class App {
         System.out.println("Producto cargado exitosamente en la categoría " + categoriaProducto.getNombre());
     }
 }
+ */

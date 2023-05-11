@@ -1,4 +1,4 @@
-package domain;
+package poo.escenarionew2.dominio;
 import java.util.Scanner;
 import java.time.LocalDateTime;
 

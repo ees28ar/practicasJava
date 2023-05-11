@@ -1,19 +1,31 @@
-package domain;
+package poo.escenarionew2.dominio;
 
+import java.io.ObjectInputStream.GetField;
 import java.util.Scanner;
 
 public class Categoria {
     private String nombre;
     private String descripcion;
+    private boolean isDiponible;
     
-    public Categoria(String nombre, String descripcion) {
+    public Categoria(String nombre, String descripcion, boolean isDiponible) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.isDiponible= isDiponible;
+
     }
     
     // Getters y setters
     public String getNombre() {
         return nombre;
+    }
+
+    public void setIsdiponible(Boolean isDiponible) {
+        this.isDiponible = isDiponible;
+    }
+
+    public boolean getIsdiponible() {
+        return isDiponible;
     }
 
     public void setNombre(String nombre) {
@@ -28,9 +40,7 @@ public class Categoria {
         this.descripcion = descripcion;
     }
 
-    public String getCodigo() {
-        return null;
-    }
+ 
 
 
     public static Categoria[] cargarCategorias() {
@@ -40,8 +50,9 @@ public class Categoria {
         
         String nombre;
         String descripcion;
+        boolean isDiponible;
         
-        System.out.println("Ingrese las categorías (Ingrese 0 para terminar):");
+        System.out.println("INGRESE CATEGORIAS (Ingrese 0 para terminar):");
         while (i < 10) {
             System.out.print("Nombre: ");
             nombre = scanner.nextLine();
@@ -51,9 +62,14 @@ public class Categoria {
             System.out.print("Descripción: ");
             descripcion = scanner.nextLine();
             
-            Categoria categoria = new Categoria(nombre, descripcion);
+
+            System.out.print("¿Se Encuentra Disponible?: ");
+            isDiponible = scanner.nextBoolean();
+            System.out.println("Categoria agregada Exitosamente");
+            Categoria categoria = new Categoria(nombre, descripcion, isDiponible);
             categorias[i] = categoria;
             i++;
+            scanner.nextLine(); 
         }
         
         return categorias;

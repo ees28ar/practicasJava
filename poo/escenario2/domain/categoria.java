@@ -1,4 +1,4 @@
-package poo.escenario2.domain;
+/*package poo.escenario2.domain;
 
 public class categoria {
     private String codigo;
@@ -47,4 +47,4 @@ public class categoria {
         this.productos.remove(producto);
     }
 
-}
+}*/

@@ -1,4 +1,4 @@
-package domain;
+/*package domain;
 import java.time.LocalDateTime;
 
 public class Precio {
@@ -33,4 +33,4 @@ public class Precio {
     public void setFechaFinPromocion(String fechaFinPromocion) {
         this.fechaFinPromocion = fechaFinPromocion;
     }
-}
+}*/

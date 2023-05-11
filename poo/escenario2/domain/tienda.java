@@ -1,4 +1,4 @@
-package poo.escenario2.domain;
+/*package poo.escenario2.domain;
 import java.util.*;
 public class tienda {
 
@@ -63,6 +63,6 @@ public class tienda {
     }
 
 
-}
+}*/
 
 
